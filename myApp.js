@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
     //res.send("Hello Express");
 })
 
-
+app.use('/public', express.static( __dirname + '/public'));
 
 
 
