@@ -34,7 +34,7 @@ app.get('/json', function (req, res) {
 });
 
 app.get('/:word/echo', function (req, res) {
-    let json = { echo: req.params }
+    let json = { echo: req.params.word }
     res.send(json);
 });
 
