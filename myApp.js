@@ -1,5 +1,5 @@
-require('dotenv').config()
-
+require('dotenv').config();
+let bodyParser = require('body-parser');
 let express = require('express');
 let app = express();
 
@@ -47,6 +47,7 @@ app.get('/name', function (req, res) {
     res.send(json);
 });
 
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 
