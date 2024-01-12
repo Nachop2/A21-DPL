@@ -5,7 +5,7 @@ let app = express();
 
 console.log("Hello World");
 
-app.use(function(req,res,next){
+app.use(function (req, res, next) {
     console.log(req.method + " " + req.path + " - " + req.ip);
     next();
 });
@@ -22,19 +22,19 @@ app.get('/json', function (req, res) {
     let json = { "message": "Hello json" };
     if (process.env.MESSAGE_STYLE == "uppercase") {
         json = { "message": "HELLO JSON" };
-    } 
+    }
     res.json(json);
 });
 
-app.get('/now', (req,res,next) => {
+app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
-}, (req,res) =>{
-    res.json({time:req.time});
+}, (req, res) => {
+    res.json({ "time": req.time });
 });
 
-app.get('/:word/echo', function(req,res){
-    let json = {echo: req.params}
+app.get('/:word/echo', function (req, res) {
+    let json = { echo: req.params }
     res.send(json);
 });
 
