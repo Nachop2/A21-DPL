@@ -5,6 +5,13 @@ let app = express();
 
 console.log("Hello World");
 
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+}, (req, res) => {
+    res.json({ "time": req.time });
+});
+
 app.use(function (req, res, next) {
     console.log(req.method + " " + req.path + " - " + req.ip);
     next();
@@ -26,17 +33,13 @@ app.get('/json', function (req, res) {
     res.json(json);
 });
 
-app.get('/now', (req, res, next) => {
-    req.time = new Date().toString();
-    next();
-}, (req, res) => {
-    res.json({ "time": req.time });
-});
-
 app.get('/:word/echo', function (req, res) {
     let json = { echo: req.params }
     res.send(json);
 });
+
+
+
 
 
 
