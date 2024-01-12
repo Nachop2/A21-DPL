@@ -5,6 +5,9 @@ let app = express();
 
 console.log("Hello World");
 
+app.use(bodyParser.urlencoded({extended: false}));
+
+
 const currentHour = (req, res, next) => {
     req.time = new Date().toString();
     next();
@@ -47,13 +50,10 @@ app.get('/name', function (req, res) {
     res.send(json);
 });
 app.post('/name', function (req, res) {
-    console.log(req.body);
-    
     let json = { name: req.body.first + " " + req.body.last }
     res.send(json);
 });
 
-app.use(bodyParser.urlencoded({extended: false}));
 
 
 
