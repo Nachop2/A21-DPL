@@ -38,7 +38,8 @@ app.get('/json', function (req, res) {
 });
 
 app.get('/:word/echo', function (req, res) {
-    let json = { echo: req.params.word }
+    let word = req.params.word;
+    let json = { word: word }
     res.send(json);
 });
 
