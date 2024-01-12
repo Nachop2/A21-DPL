@@ -16,36 +16,36 @@ app.get("/now", currentHour, (req, res) => {
     });
 });
 
-// app.use(function (req, res, next) {
-//     console.log(req.method + " " + req.path + " - " + req.ip);
-//     next();
-// });
+app.use(function (req, res, next) {
+    console.log(req.method + " " + req.path + " - " + req.ip);
+    next();
+});
 
-// app.get('/', function (req, res) {
-//     absolutePath = __dirname + '/views/index.html'
-//     res.sendFile(absolutePath);
-//     //res.send("Hello Express");
-// });
+app.get('/', function (req, res) {
+    absolutePath = __dirname + '/views/index.html'
+    res.sendFile(absolutePath);
+    //res.send("Hello Express");
+});
 
-// app.use('/public', express.static(__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/public'));
 
-// app.get('/json', function (req, res) {
-//     let json = { "message": "Hello json" };
-//     if (process.env.MESSAGE_STYLE == "uppercase") {
-//         json = { "message": "HELLO JSON" };
-//     }
-//     res.json(json);
-// });
+app.get('/json', function (req, res) {
+    let json = { "message": "Hello json" };
+    if (process.env.MESSAGE_STYLE == "uppercase") {
+        json = { "message": "HELLO JSON" };
+    }
+    res.json(json);
+});
 
-// app.get('/:word/echo', function (req, res) {
-//     let json = { echo: req.params.word }
-//     res.send(json);
-// });
+app.get('/:word/echo', function (req, res) {
+    let json = { echo: req.params.word }
+    res.json(json);
+});
 
-// app.get('/name', function (req, res) {
-//     let json = { name: req.query.first + req.query.last }
-//     res.send(json);
-// });
+app.get('/name', function (req, res) {
+    let json = { name: req.query.first + req.query.last }
+    res.send(json);
+});
 
 
 
