@@ -43,7 +43,7 @@ app.get('/:word/echo', function (req, res) {
 });
 
 app.get('/name', function (req, res) {
-    let json = { name: req.query.first + req.query.last }
+    let json = { name: req.query.first + " " + req.query.last }
     res.send(json);
 });
 
