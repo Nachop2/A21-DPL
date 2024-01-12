@@ -46,6 +46,10 @@ app.get('/name', function (req, res) {
     let json = { name: req.query.first + " " + req.query.last }
     res.send(json);
 });
+app.post('/name', function (req, res) {
+    let json = { name: req.body.first + " " + req.body.last }
+    res.send(json);
+});
 
 app.use(bodyParser.urlencoded({extended: false}));
 
