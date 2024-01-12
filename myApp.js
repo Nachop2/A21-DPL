@@ -5,11 +5,15 @@ let app = express();
 
 console.log("Hello World");
 
-app.get('/now', (req, res, next) => {
+const currentHour = (req, res, next) => {
     req.time = new Date().toString();
     next();
-}, (req, res) => {
-    res.json({ "time": req.time });
+};
+
+app.get("/now", currentHour, (req, res) => {
+    res.send({
+        time: req.time
+    });
 });
 
 app.use(function (req, res, next) {
@@ -38,6 +42,10 @@ app.get('/:word/echo', function (req, res) {
     res.send(json);
 });
 
+app.get('/name', function (req, res) {
+    let json = { name: req.query.first + req.query.last }
+    res.send(json);
+});
 
 
 
