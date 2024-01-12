@@ -47,6 +47,8 @@ app.get('/name', function (req, res) {
     res.send(json);
 });
 app.post('/name', function (req, res) {
+    console.log(req.body);
+    
     let json = { name: req.body.first + " " + req.body.last }
     res.send(json);
 });
